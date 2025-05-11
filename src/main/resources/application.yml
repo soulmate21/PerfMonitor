@@ -5,10 +5,20 @@ spring:
     password: "123456"
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  application:
+    name: PerfMonitor
+
   jpa:
     hibernate:
       ddl-auto: update  # 创建表结构，开发环境常用
     show-sql: true       # 控制台打印 SQL
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: Debug

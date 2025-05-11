@@ -11,15 +11,20 @@ public class TestResultDTO {
     private LocalDateTime startTime;
     private LocalDateTime endTime;  // 新增字段
     private Integer projectId;
+    private String description;
 
-    public TestResultDTO(Integer id, String name,
+
+    public TestResultDTO(Integer id,
+                         String name,
                          LocalDateTime startTime,
                          LocalDateTime endTime,
-                         Integer projectId) {
+                         Integer projectId,
+                         String description) {
         this.id = id;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
         this.projectId = projectId;
+        this.description = description;
     }
 }

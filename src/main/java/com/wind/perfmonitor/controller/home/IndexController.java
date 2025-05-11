@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 @RestController
-public class index {
+public class IndexController {
 
     @Autowired
     private  IndexService indexService;

@@ -5,7 +5,7 @@ import com.wind.perfmonitor.dto.PagedResultDTO;
 import com.wind.perfmonitor.dto.TestResultDTO;
 import com.wind.perfmonitor.entity.TestResult;
 import com.wind.perfmonitor.service.ResultService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class ResultServiceImpl implements ResultService {
 
-    private final TestResultRepository repository;
+    @Autowired
+    private TestResultRepository repository;
 
     @Override
     public PagedResultDTO<TestResultDTO> getAllResults(int page, int size) {
@@ -59,7 +59,8 @@ public class ResultServiceImpl implements ResultService {
                 entity.getName(),
                 entity.getStartTime(),
                 entity.getEndTime(),
-                entity.getProjectId()
+                entity.getProjectId(),
+                entity.getDescription()
         );
     }
 }

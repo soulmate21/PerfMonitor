@@ -1,19 +1,18 @@
 package com.wind.perfmonitor.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 
-@Entity
-@Table(name = "testresult")
 @Data
+@Entity
+@Table(name = "test_result")
 public class TestResult {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer id;
 
     @Column(name = "name")
@@ -25,7 +24,12 @@ public class TestResult {
     @Column(name = "end_time")
     private LocalDateTime endTime;
 
-    @Column(name = "project_id")
+
+    @JoinColumn(name = "project_id")
     private Integer projectId;
+
+    @Lob
+    @Column(name = "description")
+    private String description;
 
 }
